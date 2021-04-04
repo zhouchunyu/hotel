@@ -1,13 +1,22 @@
 package com.example.springboot.model;
 
 public class User {
-    public int getId() {
-        return id;
+    @Override
+    public String toString() {
+        return "User{" +
+                "username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", nickname='" + nickname + '\'' +
+                ", phone='" + phone + '\'' +
+                ", enabled=" + enabled +
+                '}';
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    private String username;
+    private String password;
+    private String nickname;
+    private String phone;
+    private boolean enabled;
 
     public String getUsername() {
         return username;
@@ -41,9 +50,12 @@ public class User {
         this.phone = phone;
     }
 
-    private int id;
-    private String username;
-    private String password;
-    private String nickname;
-    private String phone;
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
 }

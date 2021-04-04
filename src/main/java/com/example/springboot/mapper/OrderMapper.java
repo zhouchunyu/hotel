@@ -17,8 +17,8 @@ public interface OrderMapper {
     @Select("SELECT * FROM orders")
     List<Order> selectAll();
 
-    @Insert("insert into orders (userId, hotelId, checkInTime, checkoutTime, roomTypeId, roomsCount, peopleCount," +
-            "withOrWithoutChildren) values (#{order.userId}, #{order.hotelId}, #{order.checkInTime}, #{order.checkoutTime}," +
-            "#{order.roomTypeId}, #{order.roomsCount}, #{order.peopleCount}, #{order.withOrWithoutChildren}) ")
-    int create(@Param("order") Order order);
+    @Insert("insert into orders (username, hotelId, checkInTime, checkoutTime, roomTypeId, roomsCount, peopleCount," +
+            "withOrWithoutChildren) values (#{username}, #{hotelId}, #{checkInTime}, #{checkoutTime}," +
+            "#{roomTypeId}, #{roomsCount}, #{peopleCount}, #{withOrWithoutChildren}) ")
+    int create(Order order);
 }

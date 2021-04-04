@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{manager_layout.html}"
+      layout:decorate="~{layout.html}"
 >
 <head>
     <title>Content page</title>
@@ -39,6 +39,7 @@
         </tr>
         </tbody>
     </table>
+    <a th:href="@{/hotels}"><button type="button" class="btn btn-primary">返回</button></a>
 </section>
 </body>
 </html>

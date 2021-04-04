@@ -33,11 +33,11 @@
 
     <h3>可选择房型:</h3>
     <div class="row">
-        <div class="col" th:each="roomType: ${hotel.getRoomTypes()}">
+        <div class="col" th:each="roomType: ${roomTypes}">
             <img th:src="${roomType.src}" class="img-fluid" alt="..." style="width:100%">
         </div>
     </div>
-    <a th:href="@{/orders/newOrder}"><button type="button" class="btn btn-primary">预定</button></a>
+    <a th:href="@{'/orders/new_order?hotelId=   ' + ${hotel.id} }"><button type="button" class="btn btn-primary">预定</button></a>
 </section>
 </body>
 </html>

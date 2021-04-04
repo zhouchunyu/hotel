@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{manager_layout.html}"
+      layout:decorate="~{admin_layout.html}"
 >
 <head>
     <title>Content page</title>
@@ -16,6 +16,7 @@
             <th scope="col">username</th>
             <th scope="col">nickname</th>
             <th scope="col">phone</th>
+            <th scope="col">operate</th>
         </tr>
         </thead>
         <tbody>
@@ -24,6 +25,7 @@
             <td th:text="${user.username}"></td>
             <td th:text="${user.nickname}"></td>
             <td th:text="${user.phone}"></td>
+            <td><a th:href="@{'/admin/users/'+ ${user.username} + '/edit'}"><button type="button" class="btn btn-primary">edit</button></a></td>
         </tr>
         </tbody>
     </table>

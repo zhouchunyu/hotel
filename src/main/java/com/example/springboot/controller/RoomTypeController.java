@@ -23,10 +23,8 @@ public class RoomTypeController {
 
     @RequestMapping("/hotels/{id}/room_types")
     public String index(Model model, @PathVariable("id") int hotelId) {
-        Hotel hotel = hotelMapper.findById(hotelId);
-        model.addAttribute("hotel", hotel);
-//        model.addAttribute("roomTypes",roomTypeMapper.selectByHotelId(hotelId));
-        System.out.println(hotel.getRoomTypes());
+        model.addAttribute("hotel", hotelMapper.find(hotelId));
+        model.addAttribute("roomTypes",roomTypeMapper.selectByHotelId(hotelId));
         return "roomType/user_index";
     }
 }

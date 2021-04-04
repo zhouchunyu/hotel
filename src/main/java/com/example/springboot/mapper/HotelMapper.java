@@ -10,6 +10,10 @@ public interface HotelMapper {
     @Select("SELECT * FROM hotel")
     List<Hotel> selectAll();
 
+    @Select("SELECT id, businessDistrict, introduction, services_and_facilities servicesAndFacilities, starRating, src, address " +
+            "FROM hotel where id = #{id}")
+    Hotel find(@Param("id") int id);
+
 //    在xml文件里定义了
     Hotel findById(@Param("id") int id);
 

@@ -34,7 +34,7 @@ class ManagerHotelController {
 
     @RequestMapping("/manager/hotels/{id}/edit")
     public String edit(Model model, @PathVariable("id") int id) {
-        Hotel hotel = hotelMapper.findById(id);
+        Hotel hotel = hotelMapper.find(id);
         model.addAttribute("hotel", hotel);
         return "hotel/edit";
     }

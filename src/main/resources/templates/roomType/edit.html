@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{manager_layout.html}"
+>
+<head>
+    <title>Content page</title>
+    <!--    <script src="content-script.js"></script>-->
+</head>
+<body>
+<section layout:fragment="content">
+    <h3>修改酒店信息:</h3>
+    <form th:action="'/manager/room_types/' + ${roomType.id}" method="post" accept-charset="UTF-8">
+        <div class="mb-3 form-group">
+            <label for="type" class="form-label">type: </label>
+            <input type="text" class="form-control" id="type" th:field="${roomType.type}" >
+        </div>
+        <div class="mb-3 form-group">
+            <label for="num" class="form-label">num: </label>
+            <input type="number" class="form-control" id="num" th:field="${roomType.num}">
+        </div>
+        <div class="mb-3 form-group">
+            <label for="price" class="form-label">price: </label>
+            <input type="number" step="any" class="form-control" id="price" th:field="${roomType.price}">
+        </div>
+
+        <div class="mb-3 form-group">
+            <div class="mb-3 form-group">
+                <label for="hotelId" class="form-label">hotelId: </label>
+                <input type="number" class="form-control" id="hotelId" th:field="${roomType.hotelId}">
+            </div>
+        </div>
+
+        <div class="mb-3 form-group">
+            <label for="src" class="form-label">src: </label>
+            <input type="text" class="form-control" id="src" th:field="${roomType.src}">
+        </div>
+
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</section>
+</body>
+</html>

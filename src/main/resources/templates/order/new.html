@@ -8,21 +8,19 @@
 </head>
 <body>
 <section layout:fragment="content">
-    <form action="/orders/create" method="post" accept-charset="UTF-8">
+    <form action="/orders" method="post" accept-charset="UTF-8">
         <div class="mb-3 form-group">
-            <label for="checkInDate" class="form-label">Check In Date:</label>
-            <input type="date" class="form-control" id="checkInDate" name="checkInDate" placeholder="Check In Date">
+            <label for="checkInTime" class="form-label">Check In Date:</label>
+            <input type="datetime-local" class="form-control" id="checkInTime" name="checkInTime" placeholder="Check In Date">
         </div>
         <div class="mb-3 form-group">
-            <label for="checkoutDate" class="form-label">Check Out Date:</label>
-            <input type="date" class="form-control" id="checkoutDate" name="checkoutDate" placeholder="Check Out Date">
+            <label for="checkoutTime" class="form-label">Check Out Date:</label>
+            <input type="datetime-local" class="form-control" id="checkoutTime" name="checkoutTime" placeholder="Check Out Date">
         </div>
         <div class="mb-3 form-group">
             <label for="roomTypeId" class="form-label">Room Type Id:</label>
             <select class="form-select" id="roomTypeId" name="roomTypeId">
-                <option value="1" selected>One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+                <option th:each="roomType : ${roomTypeList}" th:value="${roomType.id}" th:text="${roomType.type}"></option>
             </select>
         </div>
         <div class="mb-3 form-group">
@@ -40,14 +38,9 @@
             <label class="form-check-label"  for="withOrWithoutChildren">with or without children:</label>
         </div>
 
-        <div class="mb-3 form-group">
-            <label for="hotelId" class="form-label">hotel id:</label>
-            <input type="number" class="form-control" id="hotelId" name="hotelId" placeholder="hotel id">
-        </div>
-
-        <div class="mb-3 form-group">
-            <label for="userId" class="form-label">user id:</label>
-            <input type="number" class="form-control" id="userId" name="userId" placeholder="user id">
+        <div class="mb-3 form-group" style="display: none">
+            <label for="hotelId" class="form-label" >hotel id:</label>
+            <input type="number" class="form-control" id="hotelId" name="hotelId" th:value="${hotel.id}" placeholder="hotel id">
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>

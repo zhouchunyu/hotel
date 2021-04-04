@@ -5,7 +5,7 @@ import java.util.Date;
 public class Order {
 
     private int id;
-    private int userId;
+    private String username;
     private int hotelId;
     private Date checkInTime;
     private Date checkoutTime;
@@ -13,6 +13,14 @@ public class Order {
     private int roomsCount;
     private int peopleCount;
     private boolean withOrWithoutChildren;
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
     public int getRoomTypeId() {
         return roomTypeId;
@@ -28,14 +36,6 @@ public class Order {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
     }
 
     public int getHotelId() {
@@ -90,7 +90,7 @@ public class Order {
     public String toString() {
         return "Order{" +
                 "id=" + id +
-                ", userId=" + userId +
+                ", username=" + username +
                 ", hotelId=" + hotelId +
                 ", checkInTime=" + checkInTime +
                 ", checkoutTime=" + checkoutTime +
