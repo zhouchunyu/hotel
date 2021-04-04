@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout.html}"
+>
+<head>
+    <title>Content page</title>
+    <!--    <script src="content-script.js"></script>-->
+</head>
+<body>
+<section layout:fragment="content">
+    <h3>修改酒店信息:</h3>
+    <form action="/manager/hotels/1" method="post" accept-charset="UTF-8">
+        <div class="mb-3 form-group">
+            <label for="businessDistrict" class="form-label">businessDistrict: </label>
+            <input type="text" class="form-control" id="businessDistrict" th:field="${hotel.businessDistrict}" >
+        </div>
+        <div class="mb-3 form-group">
+            <label for="introduction" class="form-label">introduction: </label>
+            <input type="text" class="form-control" id="introduction" th:field="${hotel.introduction}">
+        </div>
+        <div class="mb-3 form-group">
+            <label for="servicesAndFacilities" class="form-label">servicesAndFacilities: </label>
+            <input type="text" class="form-control" id="servicesAndFacilities" th:field="${hotel.servicesAndFacilities}">
+        </div>
+
+        <div class="mb-3 form-group">
+            <label for="starRating" class="form-label">starRating: </label>
+            <select class="form-select" id="starRating" th:field="${hotel.starRating}">
+                <option value="1星">1星</option>
+                <option value="2星">2星</option>
+                <option value="3星">3星</option>
+                <option value="4星">4星</option>
+                <option value="5星">5星</option>
+            </select>
+        </div>
+
+        <div class="mb-3 form-group">
+            <label for="src" class="form-label">src: </label>
+            <input type="text" class="form-control" id="src" th:field="${hotel.src}">
+        </div>
+
+        <div class="mb-3 form-group">
+            <label for="address" class="form-label">address: </label>
+            <input type="text" class="form-control" id="address" th:field="${hotel.address}">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</section>
+</body>
+</html>

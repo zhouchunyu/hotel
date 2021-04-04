@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout.html}"
+>
+<head>
+    <title>new order page</title>
+    <!--    <script src="content-script.js"></script>-->
+</head>
+<body>
+<section layout:fragment="content">
+    <form action="/orders/create" method="post" accept-charset="UTF-8">
+        <div class="mb-3 form-group">
+            <label for="checkInDate" class="form-label">Check In Date:</label>
+            <input type="date" class="form-control" id="checkInDate" name="checkInDate" placeholder="Check In Date">
+        </div>
+        <div class="mb-3 form-group">
+            <label for="checkoutDate" class="form-label">Check Out Date:</label>
+            <input type="date" class="form-control" id="checkoutDate" name="checkoutDate" placeholder="Check Out Date">
+        </div>
+        <div class="mb-3 form-group">
+            <label for="roomTypeId" class="form-label">Room Type Id:</label>
+            <select class="form-select" id="roomTypeId" name="roomTypeId">
+                <option value="1" selected>One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+            </select>
+        </div>
+        <div class="mb-3 form-group">
+            <label for="roomsCount" class="form-label">rooms count:</label>
+            <input type="number" class="form-control" id="roomsCount" name="roomsCount" placeholder="rooms count">
+        </div>
+
+        <div class="mb-3 form-group">
+            <label for="peopleCount" class="form-label">people count:</label>
+            <input type="number" class="form-control" id="peopleCount" name="peopleCount" placeholder="people count">
+        </div>
+
+        <div class="mb-3 form-group">
+            <input type="checkbox" class="form-check-input" id="withOrWithoutChildren" name="withOrWithoutChildren">
+            <label class="form-check-label"  for="withOrWithoutChildren">with or without children:</label>
+        </div>
+
+        <div class="mb-3 form-group">
+            <label for="hotelId" class="form-label">hotel id:</label>
+            <input type="number" class="form-control" id="hotelId" name="hotelId" placeholder="hotel id">
+        </div>
+
+        <div class="mb-3 form-group">
+            <label for="userId" class="form-label">user id:</label>
+            <input type="number" class="form-control" id="userId" name="userId" placeholder="user id">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</section>
+</body>
+</html>

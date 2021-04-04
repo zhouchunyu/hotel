@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout.html}"
+>
+<head>
+    <title>new room_type page</title>
+    <!--    <script src="content-script.js"></script>-->
+</head>
+<body>
+<section layout:fragment="content">
+    <h3>新建房间类型:</h3>
+    <form action="/manager/room_types" method="post" accept-charset="UTF-8">
+        <div class="mb-3 form-group">
+            <label for="type" class="form-label">type: </label>
+            <input type="text" class="form-control" id="type" name="type">
+        </div>
+        <div class="mb-3 form-group">
+            <label for="num" class="form-label">num: </label>
+            <input type="number" class="form-control" id="num" name="num">
+        </div>
+        <div class="mb-3 form-group">
+            <label for="price" class="form-label">price: </label>
+            <input type="number" step="any" class="form-control" id="price" name="price">
+        </div>
+
+        <div class="mb-3 form-group">
+            <label for="hotelId" class="form-label">hotelId: </label>
+            <input type="number" class="form-control" id="hotelId" name="hotelId">
+        </div>
+
+        <div class="mb-3 form-group">
+            <label for="src" class="form-label">src: </label>
+            <input type="text" class="form-control" id="src" name="src">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</section>
+</body>
+</html>

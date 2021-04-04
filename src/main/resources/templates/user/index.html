@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout.html}"
+>
+<head>
+    <title>Content page</title>
+    <!--    <script src="content-script.js"></script>-->
+</head>
+<body>
+<section layout:fragment="content">
+    <h3>订单列表:</h3>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">id</th>
+            <th scope="col">username</th>
+            <th scope="col">nickname</th>
+            <th scope="col">phone</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user, iter: ${users}">
+            <th scope="row" th:text="${iter.index} + 1"></th>
+            <td th:text="${user.id}"></td>
+            <td th:text="${user.username}"></td>
+            <td th:text="${user.nickname}"></td>
+            <td th:text="${user.phone}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <a th:href="@{/hotels}"><button type="button" class="btn btn-primary">返回</button></a>
+</section>
+</body>
+</html>
+

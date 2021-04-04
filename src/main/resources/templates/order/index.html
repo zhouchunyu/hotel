@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout.html}"
+>
+<head>
+    <title>Content page</title>
+    <!--    <script src="content-script.js"></script>-->
+</head>
+<body>
+<section layout:fragment="content">
+    <h3>订单列表:</h3>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">id</th>
+            <th scope="col">check_in_time</th>
+            <th scope="col">checkout_time</th>
+            <th scope="col">room_type_id</th>
+            <th scope="col">room_count</th>
+            <th scope="col">people_count</th>
+            <th scope="col">with_or_without_children</th>
+            <th scope="col">hotel_id</th>
+            <th scope="col">user_id</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="order, iter: ${orders}">
+            <th scope="row" th:text="${iter.index} + 1"></th>
+            <td th:text="${order.id}"></td>
+            <td th:text="${order.checkInTime}"></td>
+            <td th:text="${order.checkoutTime}"></td>
+            <td th:text="${order.roomTypeId}"></td>
+            <td th:text="${order.roomsCount}"></td>
+            <td th:text="${order.peopleCount}"></td>
+            <td th:text="${order.withOrWithoutChildren}"></td>
+            <td th:text="${order.hotelId}"></td>
+            <td th:text="${order.userId}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <a th:href="@{/hotels}"><button type="button" class="btn btn-primary">返回</button></a>
+</section>
+</body>
+</html>
+

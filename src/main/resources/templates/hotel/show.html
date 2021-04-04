@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout.html}"
+>
+<head>
+    <title>Content page</title>
+    <!--    <script src="content-script.js"></script>-->
+</head>
+<body>
+<section layout:fragment="content">
+    <h3>当前酒店信息:</h3>
+    <div class="container">
+        <div class="row">
+            <div class="col-3">
+                <p>id:</p>
+            </div>
+            <div class="col-6 text-start">
+                <p th:text="${hotel.id}"></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <p>address:</p>
+            </div>
+            <div class="col-6 text-start">
+                <p th:text="${hotel.address}"></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <p>businessDistrict:</p>
+            </div>
+            <div class="col-6 text-start">
+                <p th:text="${hotel.businessDistrict}"></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <p>introduction:</p>
+            </div>
+            <div class="col-6 text-start">
+                <p th:text="${hotel.introduction}"></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <p>servicesAndFacilities:</p>
+            </div>
+            <div class="col-6 text-start">
+                <p th:text="${hotel.servicesAndFacilities}"></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <p>starRating:</p>
+            </div>
+            <div class="col-6 text-start">
+                <p th:text="${hotel.starRating}"></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <p>src:</p>
+            </div>
+            <div class="col-6 text-start">
+                <img th:src="${hotel.src}" style="width:100%">
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout.html}"
+>
+<head>
+    <title>Content page</title>
+    <!--    <script src="content-script.js"></script>-->
+</head>
+<body>
+<section layout:fragment="content">
+    <h3>酒店信息:</h3>
+<!--        <p th:text="#{hotel.address}">Welcome to our grocery store!</p>-->
+    <div class="row">
+        <div class="col-sm" th:text="'地址:  ' + ${hotel.address}">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm"  th:text="'商圈:  ' + ${hotel.businessDistrict}">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm" th:text="'简介:  ' + ${hotel.introduction}">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm" th:text="'服务设施:  ' + ${hotel.address}">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm" th:text="'星级:  ' + ${hotel.starRating}">
+        </div>
+    </div>
+
+    <h3>可选择房型:</h3>
+    <div class="row">
+        <div class="col" th:each="roomType: ${hotel.getRoomTypes()}">
+            <img th:src="${roomType.src}" class="img-fluid" alt="..." style="width:100%">
+        </div>
+    </div>
+    <a th:href="@{/orders/newOrder}"><button type="button" class="btn btn-primary">预定</button></a>
+</section>
+</body>
+</html>

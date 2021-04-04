@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout.html}"
+>
+<head>
+    <title>Content page</title>
+    <!--    <script src="content-script.js"></script>-->
+</head>
+<body>
+<section layout:fragment="content">
+    <h3>订单列表:</h3>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">id</th>
+            <th scope="col">businessDistrict</th>
+            <th scope="col">introduction</th>
+            <th scope="col">services_and_facilities</th>
+            <th scope="col">starRating</th>
+            <th scope="col">src</th>
+            <th scope="col">address</th>
+            <th scope="col">operation</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="hotel, iter: ${hotels}">
+            <th scope="row" th:text="${iter.index} + 1"></th>
+            <td th:text="${hotel.id}"></td>
+            <td th:text="${hotel.businessDistrict}"></td>
+            <td th:text="${hotel.introduction}"></td>
+            <td th:text="${hotel.servicesAndFacilities}"></td>
+            <td th:text="${hotel.starRating}"></td>
+            <td th:text="${hotel.src}"></td>
+            <td th:text="${hotel.address}"></td>
+            <td><a th:href="@{'/manager/hotels/'+ ${hotel.id} + '/edit'}"><button type="button" class="btn btn-primary">edit</button></a></td>
+        </tr>
+        </tbody>
+    </table>
+    <a th:href="@{/manager/hotels/new}"><button type="button" class="btn btn-primary">new</button></a>
+    <a th:href="@{/hotels}"><button type="button" class="btn btn-primary">back</button></a>
+</section>
+</body>
+</html>
+

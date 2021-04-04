@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.springboot.mapper.HotelMapper">
+    <select id="findById" resultMap="hotelRoomTypes">
+        SELECT hotel.id hid, hotel.businessDistrict hbusinessDistrict, hotel.introduction hintroduction,
+        hotel.services_and_facilities hservices_and_facilities, hotel.starRating hstarRating, hotel.src hsrc,
+        hotel.address haddress, room_type.id rid, room_type.type rtype, room_type.num rnum, room_type.price rprice,
+        room_type.hotel_id rhotel_id, room_type.src rsrc
+        FROM hotel, room_type
+        where hotel.id=#{id} and room_type.hotel_id = hotel.id
+    </select>
+
+    <resultMap id="hotelRoomTypes" type="Hotel">
+        <result property="id" column="hid"></result>
+        <result property="businessDistrict" column="hbusinessDistrict"></result>
+        <result property="introduction" column="hintroduction"></result>
+        <result property="servicesAndFacilities" column="hservices_and_facilities"></result>
+        <result property="starRating" column="hstarRating"></result>
+        <result property="src" column="hsrc"></result>
+        <result property="address" column="haddress"></result>
+        <collection property="roomTypes" ofType="RoomType" column="hotel_id">
+            <result property="id" column="rid"></result>
+            <result property="type" column="rtype"></result>
+            <result property="num" column="rnum"></result>
+            <result property="price" column="rprice"></result>
+            <result property="hotelId" column="rhotel_id"></result>
+            <result property="src" column="rsrc"></result>
+        </collection>
+    </resultMap>
+
+</mapper>

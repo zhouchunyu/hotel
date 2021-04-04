@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout.html}"
+>
+<head>
+    <title>Content page</title>
+    <!--    <script src="content-script.js"></script>-->
+</head>
+<body>
+<section layout:fragment="content">
+    <h3>订单列表:</h3>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">id</th>
+            <th scope="col">type</th>
+            <th scope="col">num</th>
+            <th scope="col">price</th>
+            <th scope="col">hotelId</th>
+            <th scope="col">src</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="roomtype, iter: ${roomTypes}">
+            <th scope="row" th:text="${iter.index} + 1"></th>
+            <td th:text="${roomtype.id}"></td>
+            <td th:text="${roomtype.type}"></td>
+            <td th:text="${roomtype.num}"></td>
+            <td th:text="${roomtype.price}"></td>
+            <td th:text="${roomtype.hotelId}"></td>
+            <td> <img th:src="${roomtype.src}" style="width:100%"></td>
+        </tr>
+        </tbody>
+    </table>
+    <a th:href="@{/manager/room_types/new}"><button type="button" class="btn btn-primary">new</button></a>
+    <a th:href="@{/hotels}"><button type="button" class="btn btn-primary">返回</button></a>
+</section>
+</body>
+</html>
+
